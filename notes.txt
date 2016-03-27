@@ -1,0 +1,7 @@
+por favor descargar la versión de git hug para escritorio de windows.
+instalarla y sincronizar una carpeta en el htdocs de su servidor local
+para poder llevar un control de cambios y versiones en el sistema.
+
+Para evitarnos problemas con versiones de base de datos o php ( dado que 
+las ultimas versiones de xampp vienen es con mariadb y no com mysql) por 
+favor instalar la versión de xampp " xampp-win32-5.5.30-7-VC11-installer "
