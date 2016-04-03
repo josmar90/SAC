@@ -46,17 +46,15 @@ else{
 
  while($infousuario = $resultado->fetch_object()){ 
       //retorno toda la informacion del usuario en un array solo si se encuentra 
-      //activado el inicio de sesion
-      
       if($infousuario->condicion=='Activo'){
+      //si el usuario se encuentra activado (con autorizacion para ingresar a sistema)
       return $infousuario;}
       else{
+      //mensaje de error  si no se encuentra activo el usuario 
       	$infousuario="error";
         return $infousuario;
       }
         } 
-
-
      
 }
 
@@ -66,6 +64,6 @@ $conexion->close();
 }//fin metodo de inicio de sesion.
 
 
-}
+}//fin clase InformacionUsuario
 
 ?>
