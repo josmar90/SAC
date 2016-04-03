@@ -4,10 +4,13 @@
 	<title>Solicitud de Aplicaciones Corporativas</title>
 </head>
 <?php 
-include("/controladores/conexion.php"); 
+session_start();
+
 ?>
 
 <body>
-prueba
+
+<a href="./controladores/iniciodesesion.php" rel="nofolow">iniciar sesion</a>
+
 </body>
 </html>
