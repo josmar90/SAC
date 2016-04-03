@@ -42,12 +42,20 @@ return $infousuario;
 else{
 
 //echo de prueba para la validacion 	
-echo "bienvenido al sistema";
+
 
  while($infousuario = $resultado->fetch_object()){ 
       //retorno toda la informacion del usuario en un array
-      return $infousuario;
+      
+      if($infousuario->condicion=='1'){
+      return $infousuario;}
+      else{
+      	$infousuario="error";
+      }
         } 
+
+
+     
 }
 
 //cerramos la conexion a la base de datos
