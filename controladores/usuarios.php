@@ -45,12 +45,14 @@ else{
 
 
  while($infousuario = $resultado->fetch_object()){ 
-      //retorno toda la informacion del usuario en un array
+      //retorno toda la informacion del usuario en un array solo si se encuentra 
+      //activado el inicio de sesion
       
-      if($infousuario->condicion=='1'){
+      if($infousuario->condicion=='Activo'){
       return $infousuario;}
       else{
       	$infousuario="error";
+        return $infousuario;
       }
         } 
 
