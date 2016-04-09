@@ -12,5 +12,8 @@ session_start();
 
 <a href="./controladores/iniciodesesion.php" rel="nofolow">iniciar sesion</a>
 
+<a href="./controladores/registrousuario.php" rel="nofolow">registro</a>
+
+
 </body>
 </html>

@@ -19,7 +19,7 @@ include ("conexion.php");
 $queryusuarios="SELECT u.idusuario as id,u.nombres as nombres, u.apellidos as apellidos, u.nacionalidad as nacionalidad,
                 u.cedula as cedula, u.usuariosap as usariosap, u.correo as correo, u.contratista as contratista, 
                 u.duracion as dcontrato, c.nombre as cargo, cr.nombre as coordinacion, u.usuario_idusuario as supervisor,
-                 u.usuario as usuario, u.clave as clave, con.nombre as condicion 
+                 u.usuario as usuario, u.clave as clave, con.idCondicion as condicion, f.fijo as fijo, f.movil as movil  
                        FROM usuario u join telefono f on(u.idusuario=f.usuario_idusuario)
                                       join cargo c on(u.cargo_idcargo=c.idcargo) 
                                       join condicion con on(u.Condicion_idCondicion=con.idCondicion)
@@ -27,6 +27,7 @@ $queryusuarios="SELECT u.idusuario as id,u.nombres as nombres, u.apellidos as ap
                                       Where usuario='".$usuario."' and clave='".$contraseña."'";
 
 //llamada de consulta a la base de datos a la tabla usuario.
+
 $resultado=$conexion->query($queryusuarios);
 
 
@@ -46,12 +47,12 @@ else{
 
  while($infousuario = $resultado->fetch_object()){ 
       //retorno toda la informacion del usuario en un array solo si se encuentra 
-      if($infousuario->condicion=='Activo'){
+      if($infousuario->condicion==1){
       //si el usuario se encuentra activado (con autorizacion para ingresar a sistema)
       return $infousuario;}
       else{
       //mensaje de error  si no se encuentra activo el usuario 
-      	$infousuario="error";
+      	$infousuario="error2";
         return $infousuario;
       }
         } 
@@ -62,6 +63,22 @@ else{
 $conexion->close();
 
 }//fin metodo de inicio de sesion.
+
+
+//metodo registro de nuevo usuario
+public function registrousuario($varnombres,$varapellidos,$varnacionalidad,$varcedula,$varusuariosap,$varcorreo,$varcontratista,$varduracion,$idcargo,$idcoordinacion,$idsupervisor,$varloginusuario,$varclavelogin,$varcondicion,$vartelefonofijo,$vartelefonomovil){
+//incluimos la conexion a la base de datos mysql
+include ("conexion.php");
+
+$llamadaregistro= 'CALL REGISTROUSUARIO("'.$varnombres.'","'.$varapellidos.'","'.$varnacionalidad.'","'.$varcedula.'","'.$varusuariosap.'","'.$varcorreo.'","'.$varcontratista.'","'.$varduracion.'",'.$idcargo.','.$idcoordinacion.','.$idsupervisor.',"'.$varloginusuario.'","'.$varclavelogin.'",'.$varcondicion.','.$vartelefonofijo.','.$vartelefonomovil.')';
+
+
+
+$conexion->query($llamadaregistro) or die ("error al ingresar nuevo usuario");
+
+$conexion->close();
+} //fin metodo registro de usuario. 
+
 
 
 }//fin clase InformacionUsuario
