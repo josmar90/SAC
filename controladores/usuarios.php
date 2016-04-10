@@ -80,6 +80,22 @@ $conexion->close();
 } //fin metodo registro de usuario. 
 
 
+//metodo de actualizar datos
+function actualizarusuario($id,$nombres,$apellidos,$nacionalidad,$cedula,$usuariosap, $correo, $contratista, $duracion,$cargo
+  ,$coordinacion,$supervisor,$usuario,$clave,$estado)
+{
+   include ("conexion.php");
+
+  $actualizar='CALL ACTUALIZARDATOS('.$id.',"'.$nombres.'","'.$apellidos.'","'.$nacionalidad.'","'.$cedula.'","'.$usuariosap.'","'.$correo.'","'.$contratista.'","'.$duracion.'",'.$cargo.','.$coordinacion.','.$supervisor.',"'.$usuario.'","'.$clave.'",'.$estado.')';
+  echo $actualizar; 
+
+  $conexion->query($actualizar) or die("<br>error al actualizar datos");
+
+$conexion->close();
+ 
+}//fin metodo de actualizar usuario
+
+
 
 }//fin clase InformacionUsuario
 

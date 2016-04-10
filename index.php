@@ -14,6 +14,8 @@ session_start();
 
 <a href="./controladores/registrousuario.php" rel="nofolow">registro</a>
 
+<a href="./controladores/actualizarusuario.php">actualizar</a>
+
 
 </body>
 </html>
