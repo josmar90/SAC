@@ -11,16 +11,18 @@ session_start();
 //header de gobierno bolivariano
 include ("./componentes/header.php");
 
+//validacion de errores de inicio de sesion estas variables se reciben por GET
 if(isset($_GET["error"])){
 $error=$_GET["error"];
-if ($error==1) {
+
+if ($error==1) { //codigo de error cuando los datos ingresados no son correctos
 	echo "error en los datos";
 }
 }
 
 if(isset($_GET["error"])){
-$error=$_GET["error"];
-if ($error==2) {
+$error=$_GET["error"]; 
+if ($error==2) { //codigo de error cuando el usuario no se encuentra habilitado para ingresar al sistema
 	echo "Usuario inactivo";
 }
 }
@@ -98,7 +100,7 @@ if ($error==2) {
 </div>
 </body>
 <?php
-
+//footer del sitio
 include ("./componentes/footer.php");
 
 ?>
