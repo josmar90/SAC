@@ -4,8 +4,8 @@
 include("usuarios.php"); 
 
 //recibo los datos del formulario de inicio de sesion
-$us="admin";
-$con="admin";
+$us = $_POST["usuario"];
+$con = $_POST["clave"];
 
 
 //creacion de objeto de la clase Informacionusuario.
@@ -16,17 +16,18 @@ $datosusuario = $usuario->iniciodesesion($us,$con);
 
 //error cuando el usuario no existe en el sistema
 if($datosusuario=='error'){
-echo "error al iniciar sesion";	
+header('location:../index.php?error=1');	
 }
 
 //error cuando el usuario existe pero aun no tiene autorizacion para ingresar al sistema
 else if($datosusuario=='error2'){
-echo "error usuario sin acceso valido";	
+header('location:../index.php?error=2');	
 }
 
 //usuario existe y posee autorizacion para ingresar al sistema
 else{
-print_r($datosusuario);	
+
+$_session["datoslogin"]=$datosusuario;
 
 }
 ?>
