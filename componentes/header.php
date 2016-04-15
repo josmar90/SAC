@@ -4,6 +4,7 @@
 		<img src="./img/logo-gobierno-bolivariano.png">
 	</div>
     
+    
     <div class="textotop">
 
     	<span> &nbsp;&nbsp;Ministerio del Poder Popular

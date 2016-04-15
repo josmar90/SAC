@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="./estilos/estilosglobal.css">
     <meta name="Description" content="Sistema de solicitud de aplicaciones coorporativas de CANTV Venezuela">
 </head>
+
 <?php 
 session_start();
 //header de gobierno bolivariano
